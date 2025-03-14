@@ -14,6 +14,8 @@ def filter_by_state(dictionary_list: List[Dict], state: str = 'EXECUTED') -> Lis
 
 
 def sort_by_date(dictionary_list: List[Dict], increase: bool = True) -> List[Dict]:
+    ''' Функция, которая принимает на вход список словарей, который сортирует по дате
+    на убываение и возвращает новый отсортированный спиок. '''
     new_list = sorted(
         dictionary_list,
         reverse=increase,
