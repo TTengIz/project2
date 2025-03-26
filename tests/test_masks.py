@@ -19,7 +19,7 @@ def test_invalid_card_number(card):
         get_mask_card_number(card)
 
 
-def test_get_mask_account():
+def test_get_mask_account(card_account):
     assert get_mask_account(card_account) == '**4305'
 
 

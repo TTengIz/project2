@@ -1,14 +1,37 @@
 import pytest
 
-from src.processing import filter_by_state
-
-@pytest.mark.parametrize('value, expected', [([
-        {'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'},
-        {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'},
-        {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'},
-        {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}
-])])
-def test_filter_by_state(value, expected):
-    assert filter_by_state(value) == expected
+from src.processing import filter_by_state, sort_by_date
 
 
+def test_filter_by_state_canceled(dictionary_list, expected_canceled):
+    assert filter_by_state(dictionary_list, 'CANCELED') == expected_canceled
+
+def test_filter_by_state_executed(dictionary_list, expected_executed):
+    assert filter_by_state(dictionary_list, 'EXECUTED') == expected_executed
+
+@pytest.mark.parametrize('dictionary', [
+    123,
+    '',
+    {},
+    ()
+])
+def test_filer_by_state_wrong_type(dictionary):
+    with pytest.raises(TypeError):
+        filter_by_state(dictionary)
+
+
+def test_sort_by_date(dictionary_list, new_list):
+    assert sort_by_date(dictionary_list, True) == new_list
+
+def test_sort_by_date(dictionary_list, new_list_reverse):
+    assert sort_by_date(dictionary_list, False) == new_list_reverse
+
+@pytest.mark.parametrize('dictionary', [
+    123,
+    '',
+    {},
+    ()
+])
+def test_sort_by_date_wrong_type(dictionary):
+    with pytest.raises(TypeError):
+        sort_by_date(dictionary)
