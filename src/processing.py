@@ -5,6 +5,8 @@ from typing import Dict, List
 def filter_by_state(dictionary_list: List[Dict], state: str = 'EXECUTED') -> List[Dict]:
     '''Функция, которая принимает на вход список словарей и
     создает на выход новый список словарей с нужным ключем.'''
+    if not isinstance(dictionary_list, list):
+        raise TypeError('Неверный тип данных!')
     new_dictionary = []  # Создаю новый список
     for dictionary in dictionary_list:  # Перебираю значение ключей в списке словарей
         if dictionary['state'] == state:  # Если такой имеется
@@ -15,6 +17,8 @@ def filter_by_state(dictionary_list: List[Dict], state: str = 'EXECUTED') -> Lis
 def sort_by_date(dictionary_list: List[Dict], increase: bool = True) -> List[Dict]:
     '''Функция, которая принимает на вход список словарей и сортирует по дате
     на убываение и возвращает новый отсортированный спиок.'''
+    if not isinstance(dictionary_list, list):
+        raise TypeError('Неверный тип данных!')
     new_list = sorted(
         dictionary_list,
         reverse=increase,
