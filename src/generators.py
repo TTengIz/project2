@@ -30,4 +30,3 @@ def card_number_generator(start, stop) -> Iterator[str]:
             raise ValueError("Номер карты не может быть длиннее 16 цифр")
         kard_mask = kard_mask[: -len(str(kard))] + str(kard)
         yield f'{kard_mask[:4]} {kard_mask[4:8]} {kard_mask[8:12]} {kard_mask[12:]}'
-

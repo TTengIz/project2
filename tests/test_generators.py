@@ -1,5 +1,7 @@
 import pytest
-from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
+
+from src.generators import (card_number_generator, filter_by_currency,
+                            transaction_descriptions)
 
 
 def test_filter_by_currency_usd(transactions):
@@ -90,12 +92,11 @@ def test_card_number_generator(start, stop):
     assert next(card_number) == expected_result_5
 
 
-
 @pytest.mark.parametrize('start, stop', [
     (10**16, 10**16+1),
     (10**20, 10**20+1)
 ])
 def test_invalid_card_number_generator(start, stop):
-    with pytest.raises(ValueError, match= "Номер карты не может быть длиннее 16 цифр"):
+    with pytest.raises(ValueError, match="Номер карты не может быть длиннее 16 цифр"):
         a = card_number_generator(start, stop)
         next(a)
