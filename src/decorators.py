@@ -3,17 +3,20 @@ from typing import Any
 
 
 def log(filename: Any = None) -> Any:
-    """ Декоратор, котрый записывает результат работы функции или ее ошибок."""
+    """
+    Декоратор, котрый записывает начало работы функции, конец работы функции,
+    результат работы функции или ее ошибоки.
+    """
     def my_decorartors(func):
         def wrapper(*args, **kwargs):
             try:
                 start_time = time()
                 result = func(*args, **kwargs)
                 stop_time = time()
-                log_result = (f'{func.__name__} start of work: {start_time},function result: {result},'
+                log_result = (f'{func.__name__} ok, start of work: {start_time},function result: {result},'
                               f' end of work: {stop_time}, \n')
             except Exception as e:
-                log_result = f'{func.__name__} error: {e}. Inputs: ({args}, {kwargs})\n'
+                log_result = f'{func.__name__} error: {ValueError}. Inputs: ({args}, {kwargs})\n'
                 raise
             finally:
                 if filename:
