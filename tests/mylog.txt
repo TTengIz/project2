@@ -1,0 +1,11 @@
+my_function ok time for work:7.152557373046875e-07
+my_function ok time for work:2.1457672119140625e-06
+my_function ok time for work:4.291534423828125e-06
+my_function ok time for work:2.384185791015625e-06
+my_function error unsupported operand type(s) for +: 'int' and 'str' Inputs: (3, '1'), {}
+my_function error unsupported operand type(s) for +: 'int' and 'str' Inputs: (3, '1'), {}
+my_function error unsupported operand type(s) for +: 'int' and 'str' Inputs: (3, '1'), {}
+my_function ok time for work:1.6689300537109375e-06
+my_function error unsupported operand type(s) for +: 'int' and 'str' Inputs: (3, '1'), {}
+my_function error unsupported operand type(s) for +: 'int' and 'str' Inputs: (3, '1'), {}
+my_function error unsupported operand type(s) for +: 'int' and 'str' Inputs: (3, '1'), {}
