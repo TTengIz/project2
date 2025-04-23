@@ -1,11 +1,9 @@
-from keyword import kwlist
 from time import time
 from typing import Any
 
 
 def log(filename: Any = None) -> Any:
     """ Декоратор, котрый записывает результат работы функции или ее ошибок."""
-
     def my_decorartors(func):
         def wrapper(*args, **kwargs):
             try:
@@ -30,5 +28,3 @@ def log(filename: Any = None) -> Any:
 @log()
 def my_function(x: int, y: int) -> int:
     return x + y
-
-print(my_function(3,1))

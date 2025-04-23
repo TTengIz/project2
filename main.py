@@ -1,9 +1,10 @@
-from src.masks import get_mask_card_number, get_mask_account
-from src.widget import mask_account_card, get_date
-from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
 from pprint import pprint
-from src.decorators import my_function
 
+from src.decorators import my_function
+from src.generators import (card_number_generator, filter_by_currency,
+                            transaction_descriptions)
+from src.masks import get_mask_account, get_mask_card_number
+from src.widget import get_date, mask_account_card
 
 transactions = [
         {

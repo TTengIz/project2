@@ -1,10 +1,12 @@
-from src.decorators import log
 import pytest
+
+from src.decorators import log
 
 
 @log(filename="mylog.txt")
 def my_function(x: int, y: int) -> int:
     return x + y
+
 
 def test_log_success():
     assert my_function(3, 1) == 4
@@ -12,7 +14,8 @@ def test_log_success():
 
 def test_log_error():
     with pytest.raises(TypeError):
-        my_function(3 , '1')
+        my_function(3, '1')
+
 
 @log()
 def add(x: int, y: int) -> int:
