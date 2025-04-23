@@ -25,4 +25,4 @@ def add(x: int, y: int) -> int:
 def test_log_cansol(capsys):
     add(1, 2)
     captured = capsys.readouterr()
-    assert 'ok time for work' in captured.out
+    assert 'add start of work:', 'end of work:'in captured.out

@@ -10,7 +10,7 @@ def log(filename: Any = None) -> Any:
                 start_time = time()
                 result = func(*args, **kwargs)
                 stop_time = time()
-                log_result = f'{func.__name__} ok time for work:{stop_time - start_time}\n'
+                log_result = f'{func.__name__} start of work: {start_time}, end of work: {stop_time}\n'
                 return result
             except Exception as e:
                 log_result = f'{func.__name__} error {e} Inputs: {args}, {kwargs}\n'
@@ -25,6 +25,8 @@ def log(filename: Any = None) -> Any:
     return my_decorartors
 
 
-@log()
+@log(filename="mylog.txt")
 def my_function(x: int, y: int) -> int:
     return x + y
+
+print(my_function(3, 1))
