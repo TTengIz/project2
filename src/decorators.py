@@ -10,8 +10,8 @@ def log(filename: Any = None) -> Any:
                 start_time = time()
                 result = func(*args, **kwargs)
                 stop_time = time()
-                log_result = f'{func.__name__} start of work: {start_time}, end of work: {stop_time}\n'
-                return result
+                log_result = (f'{func.__name__} start of work: {start_time},function result: {result},'
+                              f' end of work: {stop_time}, \n')
             except Exception as e:
                 log_result = f'{func.__name__} error {e} Inputs: {args}, {kwargs}\n'
                 raise
@@ -21,6 +21,7 @@ def log(filename: Any = None) -> Any:
                         names_file.write(log_result)
                 elif not filename:
                     print(log_result)
+            return result
         return wrapper
     return my_decorartors
 
