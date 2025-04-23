@@ -13,7 +13,7 @@ def log(filename: Any = None) -> Any:
                 log_result = (f'{func.__name__} start of work: {start_time},function result: {result},'
                               f' end of work: {stop_time}, \n')
             except Exception as e:
-                log_result = f'{func.__name__} error {e} Inputs: {args}, {kwargs}\n'
+                log_result = f'{func.__name__} error: {e}. Inputs: ({args}, {kwargs})\n'
                 raise
             finally:
                 if filename:
