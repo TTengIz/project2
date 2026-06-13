@@ -1,0 +1,2 @@
+my_function ok time for work:2.384185791015625e-06
+my_function error unsupported operand type(s) for +: 'int' and 'str' Inputs: (3, '1'), {}
